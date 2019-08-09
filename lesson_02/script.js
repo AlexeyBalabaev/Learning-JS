@@ -1,1 +1,2 @@
-alert( "HELLO!!! Greatful world!" );
+alert( "Hello!" );
+alert( 'World!' );
