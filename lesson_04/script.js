@@ -40,11 +40,11 @@ alert( y );   // undefined
 /* Object and Symbol */
 
 /* typeof */
-typeof undefined;       // "undefined"
-typeof 0;               // "number"
-typeof true;            // "boolean"
-typeof "foo";           // "string"
-typeof Symbol("id");    // "synbol"
-typeof Math;            // "object"
-typeof null;            // "object"
-typeof alert;           // "function"
+alert( typeof undefined );       // "undefined"
+alert( typeof 0 );               // "number"
+alert( typeof true );            // "boolean"
+alert( typeof "foo" );           // "string"
+alert( typeof Symbol("id") );    // "synbol"
+alert( typeof Math );            // "object"
+alert( typeof null );            // "object"
+alert( typeof alert );           // "function"
