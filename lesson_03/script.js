@@ -10,7 +10,7 @@ alert( userName123123 + $ + _ );   //6
 
 const myBirthday = '28.04.1994';
 /*
-	Don't change constats
+	Don't change constats.
 	myBirthsday = '01.01.1995'; -- Don't do it
 */
 
