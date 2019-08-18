@@ -52,3 +52,9 @@ alert( null && 5 );             // null
 alert( 0 && 'no matter what' ); // 0
 alert( 1 && 2 && null && 3 );   // null
 alert( 1 && 2 && 3 );           // 3
+
+/* NOT ( ! ) */
+alert( !true );  // false
+alert( !0 );     // true
+alert( !!"non-empty string" );  // true
+alert( !!null );                // false
