@@ -71,12 +71,69 @@
 }
 */
 
+/* ----- */
+{
+  let age = prompt("How old are you?", 18);
+  let welcome;
+
+  if (age < 18) {
+
+    welcome = function() {
+      alert( 'Hi!' );
+    };
+  } else {
+
+    welcome = function() {
+      alert( 'Good morning.' );
+    };
+  }
+
+  welcome();
+}
+// or
+{
+  let age = prompt("How old are you?", 18);
+
+  let welcome = (age < 18) ?
+    function() { alert('Hi!'); } :
+    function() { alert('Good morning.'); };
+
+  welcome();
+}
+
+/* ----- */
 // Arrow functions
 let sum = (a, b) => a + b;
 
 alert( sum(1, 2) );     // 3
 
 /* ----- */
-let double = n = n * 2;
+let double = n => n * 2;
 
 alert( double(3) );     // 6
+
+/* ----- */
+let sayHello = () => alert( 'Hello!' );
+
+sayHello();
+
+/* ----- */
+{
+  let age = prompt("How old are you?", 18);
+
+  let welcome = (age < 18) ?
+    () => alert('Hi!'):
+    () => alert('Good morning.');
+
+  welcome();
+}
+
+/* ----- */
+{
+  let sum = (a, b) => {
+    let result = a + b;
+    return result;
+  };
+
+  alert( sum(1, 3) );    // 4
+}
