@@ -37,3 +37,46 @@
 
   ask('Do you agree?', showOk, showCancel);
 }
+
+/* ----- */
+{
+  function ask(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+  }
+
+  ask(
+    "Do you aggre?",
+    function() { alert( 'You agree.' ); },
+    function() { alert( 'You canceled the execution.' ); }
+  );
+}
+
+/* ----- */
+{
+  sayHi("Jhon");    // Hello, Jhon!
+
+  function sayHi(name) {
+    alert( `Hello, ${name}!` );
+  }
+}
+
+/* error
+{
+  sayHi("Jhon");
+
+  let sayHi = function(name) {
+    alert( `Hello, ${name}!` );
+  };
+}
+*/
+
+// Arrow functions
+let sum = (a, b) => a + b;
+
+alert( sum(1, 2) );     // 3
+
+/* ----- */
+let double = n = n * 2;
+
+alert( double(3) );     // 6
