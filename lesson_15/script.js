@@ -265,3 +265,25 @@
   user.sizes.width++;
   alert(clone.sizes.width);    // 51
 }
+
+/* ----- */
+{
+  let user = {
+    name: 'Jhon',
+    sizes: {
+      height: 182,
+      width: 50,
+    }
+  };
+
+  let clone = {};
+
+  for (let key in user) {
+    if (key ) {}
+  }
+
+  alert( user.sizes === clone.sizes );   // true
+
+  user.sizes.width++;
+  alert(clone.sizes.width);    // 51
+}
