@@ -59,7 +59,7 @@
     age: 30
   };
 
-  let key = prompt("Whot do you want to know about user?", "name / age");
+  let key = prompt("What do you want to know about user?", "name / age");
 
   alert( user[key] );
 }
@@ -172,6 +172,96 @@
   };
 
   for (let code in codes) {
-    alert( code );     // 49, 41, 44, 1
+    alert( +code );     // 49, 41, 44, 1
   }
+}
+
+/* ----- */
+{
+  let user = { name: 'Jhon' };
+  let admin = user;
+
+  admin.name = 'Pete';
+  alert( user.name );    // 'Pete'
+}
+
+/* ----- */
+{
+  let a = {};
+  let b = a;
+
+  alert( a == b );    // true
+  alert( a === b );   // true
+}
+{
+  let a = {};
+  let b = {};
+
+  alert( a == b );    // false
+}
+
+/* ----- */
+{
+  const user = { name: 'Jhon' };
+
+  user.age = 25;
+  alert( user.age );     // 25 -- not error
+}
+
+/* ----- */
+// copy object
+{
+  let user = {
+    name: 'Jhon',
+    age: 30,
+  };
+
+  let clone = {};
+  for (let key in user) {
+    clone[key] = user[key];
+  }
+
+  clone.name = 'Pete';
+
+  alert( user.name );    // Jhon
+}
+
+/* ----- */
+{
+  let user = { name: 'Jhon' };
+
+  let permission1 = { canView: true };
+  let permission2 = { canEdit: true };
+
+  Object.assign(user, permission1, permission2);
+
+  // now user = { name: 'Jhon', canView: true, canEdit: true }
+}
+
+/* ----- */
+{
+  let user = {
+    name: 'Jhon',
+    age: 30,
+  };
+
+  let clone = Object.assign({}, user);
+}
+
+/* ----- */
+{
+  let user = {
+    name: 'Jhon',
+    sizes: {
+      height: 182,
+      width: 50,
+    }
+  };
+
+  let clone = Object.assign({}, user);
+
+  alert( user.sizes === clone sizes );   // true
+
+  user.sizes.width++;
+  alert(clone.sizes.width);    // 51
 }
