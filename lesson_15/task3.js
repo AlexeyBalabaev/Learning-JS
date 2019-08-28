@@ -1,12 +1,15 @@
 "use sctrict";
 
-function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
+let sum = 0;
+
+let salaries = {
+  Jhon: 100,
+  Ann: 160,
+  Pete: 130,
+};
+
+for (let key in salaries) {
+  sum += salaries[key];
 }
 
-ask(
-  "Do you agree?",
-  () => alert( "You agree." ),
-  () => alert( "You canceled the execution." )
-);
+alert( sum );
