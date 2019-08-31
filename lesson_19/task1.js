@@ -1,0 +1,5 @@
+"use sctrict";
+
+function Calculator() {
+	
+}
