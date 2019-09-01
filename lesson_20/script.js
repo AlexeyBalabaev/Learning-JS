@@ -25,3 +25,41 @@
 
   alert( a == b );       // true
 }
+
+/* ----- */
+{
+  let num = 255;
+
+  alert( num.toString(16) );     // ff
+  alert( num.toString(2) );      // 11111111
+
+  alert( 123456..toString(36) ); // 2n9c
+}
+
+/* ----- */
+{
+  let num = 1.23456;
+
+  alert( Match.floor(num * 100) / 100 );    // 1.23
+}
+
+/* ----- */
+{
+  let num1 = 12.34;
+  alert( num1.toFixed(1) );   // 12.3
+
+  let num2 = 12.36;
+  alert( num2.toFixed(1) );   // 12.4
+
+  let num3 = 12.34;
+  alert( num3.toFixed(5) );   // 12.34000
+}
+
+/* ----- */
+alert( 1e500 );    // Infinity
+
+alert( 0.1 + 0.2 == 0.3 );   // false
+
+alert( 0.1 + 0.2 );    // 0.30000000000000004
+
+alert( 0.1.toFixed(20) );   // 0.10000000000000000555
