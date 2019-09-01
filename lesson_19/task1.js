@@ -1,5 +1,13 @@
 "use sctrict";
 
-function Calculator() {
-	
-}
+let user = {
+  name: "Jhon"
+};
+
+function A() { return user; }
+function B() { return user; }
+
+let a = new A;
+let b = new B;
+
+alert( a == b );    // true
