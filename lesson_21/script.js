@@ -152,3 +152,55 @@
   alert( "Widget".startsWith("Wid") );  // true
   alert( "Widget".endsWith("get") );    // true
 }
+
+/* ----- */
+{
+  let str = "stringify";
+
+  alert( str.slice(0, 5) );   // strin
+  alert( str.slice(0, 1) );   // s
+
+  alert( str.slice(2) );      // ringify
+
+  alert( str.slice(-4, -1))   // gif
+}
+
+/* ----- */
+{
+  let str = "stringify";
+
+  alert( str.substring(2, 6) );   // ring
+  alert( str.substring(6, 2) );   // ring
+}
+
+/* ----- */
+{
+  let str = "stringify";
+
+  alert( str.substr(2, 4) );   // ring
+
+  alert( str.substr(-4, 2) );  // gi
+}
+
+/* ----- */
+{
+  alert( 'a' > 'Z' );   // true
+  alert( 'Österreich' > 'Zealand' );   // true
+
+  alert( "z".codePointAt(0) );   // 122
+  alert( "Z".codePointAt(0) );   // 90
+
+  alert( String.fromCodePoint(90) );  // Z
+
+  alert( 'u005a' );    // Z
+
+  let str = '';
+
+  for (let i = 65; i <= 220; i++) {
+    str += String.fromCodePoint(i)
+  }
+  alert( str );
+
+  // -----
+  alert( 'Österreich'.localeCompare('Zealand') ); // -1
+}
