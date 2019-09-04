@@ -230,3 +230,48 @@
 
 	alert( str );    // Jhon;Pete;Mary
 }
+
+/* ----- */
+{
+	let arr = [1, 2, 3, 4, 5];
+
+	let result = arr.reduce((sum, current) => sum + current, 0);
+	alert( result );   // 15
+
+	let res = arr.reduce((sum, current) => sum + current);
+	alert( res );   // 15
+}
+
+/* ----- */
+{
+	alert(typeof {});   // object
+	alert(typeof []);   // object
+
+	alert(Array.isArray({}));   // false
+	alert(Array.ifArray([]));   // true
+}
+
+/* ----- */
+// arr.find(func, thisArg);
+// arr.filter(func, thisArg);
+// arr.map( func, thisArg);
+
+/* ----- */
+{
+	let user = {
+		age: 18,
+		younger(otherUser) {
+			return otherUser.age < this.age;
+		}
+	};
+
+	let users = [
+    {age: 12},
+    {age: 16},
+    {age: 32}
+	];
+
+	let youngerUsers = users.filter(user.younger, user);
+
+	alert(youngerUsers.length);   // 2
+}
