@@ -187,6 +187,46 @@
 	alert(arr);   // 1,2,15
 
 	//better
-	arr.sort( (a, b) => a -b );
+	arr.sort( (a, b) => a -b );   // this kind of functions to use much better
 	alert(arr);   // 1,2,15
+}
+
+/* ----- */
+{
+	let arr = [1, 2, 3, 4, 5];
+	arr.reverse();
+
+	alert( arr );   // 5,4,3,2,1
+}
+
+/* ----- */
+{
+	let names = 'Jhon, Pete, Mary';
+
+	let arr = names.split(', ');
+
+	for (let name of arr) {
+		alert( `The message will receive: ${name}.` )
+	}
+}
+
+/* ----- */
+{
+	let arr = 'Jhon, Pete, Mary'.split(', ', 2);
+	alert( arr );      // Jhon,Pete
+}
+
+/* ----- */
+{
+	let str = "test";
+
+	alert( str.split('') );   // t,e,s,t
+}
+
+/* ----- */
+{
+	let arr = ['Jhon', 'Pete', 'Mary'];
+	let str = arr.join(';');
+
+	alert( str );    // Jhon;Pete;Mary
 }
