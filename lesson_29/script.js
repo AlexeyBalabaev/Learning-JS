@@ -37,5 +37,44 @@
 
   alert( date.getHours() );   // hour in current time zone
 
-  alert( date.getHours() );   // hour in time zone UTC+0 (London time without daylight saving)
+  alert( date.getUTCHours() );   // hour in time zone UTC+0 (London time without daylight saving)
+
+  alert( new Date().getTimezoneOffset() );  // UTC+3 is displayed -180
+}
+
+/* ----- */
+{
+  // set components of date:
+  /*
+  setFullYear(year, [month], [date])
+  setMonth(month, [date])
+  setDate(date)
+  setHours(hour, [min], [sec], [ms])
+  setMinutes(min, [sec], [ms])
+  setSeconds(sec, [ms])
+  setMilliseconds(ms)
+  setTime(milliseconds)
+  */
+
+  let today = new Date();
+
+  today.setHours(0);
+  alert(today);  // nowadays and hour 0
+
+  today.setHours(0, 0, 0, 0);
+  alert(today);  // nowadays, but time will be exactly 00:00:00.
+}
+
+/* ----- */
+{
+  let date = new Date(2013, 0, 32);  // 32 Jan 2013 ?!?
+  alert(date);   // 1st Feb 2013
+}
+
+/* ----- */
+{
+  let date = new Date(2016, 1, 28);
+  date.setDate(date.getDate() + 2);
+
+  alert( date );   // 1 Mar 2016
 }
