@@ -78,3 +78,110 @@
 
   alert( date );   // 1 Mar 2016
 }
+
+/* ----- */
+{
+  let date = new Date();
+  date.setSeconds(date.getSeconds() + 70);
+
+  alert( date );
+}
+
+/* ----- */
+{
+  let date = new Date(2016, 0, 2);   // 2 Jan 2016
+
+  date.setDate(1);  // first date of month
+  alert( date );    // 1 Jan 2016
+
+  date.setDate(0);  // first day of month - is 1, so it displays last date of previous month
+  alert( date );    // 31 Dec 2015
+}
+
+/* ----- */
+{
+  let date = new Date();
+  alert(+date);   // milliseconds, the same, that date.getTime()
+}
+
+/* ----- */
+{
+  let start = new Date();
+
+  for (let i = 0; i < 100000; i++) {
+    let doSomething = i * i * i;
+  }
+
+  let end = new Date();
+
+  alert( `The cycle worked for ${end - start} milliseconds.` );
+}
+
+
+/* ----- */
+{
+  function diffSubstract(date1, date2) {
+    return date2 - date1;
+  }
+
+  function diffGetTime(date1, date2) {
+    return date2.getTime() - date1.getTime();
+  }
+
+  function bench(f) {
+    let date1 = new Date(0);
+    let date2 = new Date();
+
+    let start = Date.now();
+    for (let i = 0; i < 100000; i++) f(date1, date2);
+    return Date.now() - start;
+  }
+
+  alert( 'Time diffSubstract: ' + bench(diffSubstract) + 'ms' );
+  alert( 'Time diffGetTime: ' + bench(diffGetTime) + 'ms' );
+}
+
+/* ----- */
+{
+  function diffSubstract(date1, date2) {
+    return date2 - date1;
+  }
+
+  function diffGetTime(date1, date2) {
+    return date2.getTime() - date1.getTime();
+  }
+
+  function bench(f) {
+    let date1 = new Date(0);
+    let date2 = new Date();
+
+    let start = Date.now();
+    for (let i = 0; i < 100000; i++) f(date1, date2);
+    return Date.now() - start;
+  }
+
+  let time1 = 0;
+  let time2 = 0;
+
+  for (let i = 0; i < 10; i++) {
+    time1 += bench(diffSubstract);
+    time2 += bench(diffGetTime);
+  }
+
+  alert( 'Summary time diffSubstract: ' + time1 );
+  alert( 'Summary time diffGetTime: ' + time2 );
+}
+
+/* ----- */
+{
+  let ms = Fate.parse('2012-01-26T13:51:50.417-07:00');
+  alert(ms);   // 1327611110417 (timestamp)
+
+  let date = new Date( Date.parse('2012-01-26T13:51:50.417-07:00') );
+  alert(date);
+}
+
+/* ----- */
+{
+  alert( `Download began ${performance.now()}ms ago` );
+}
