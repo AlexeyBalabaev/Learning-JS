@@ -26,12 +26,12 @@ class Clock {
   }
 
   stop() {
-  	clearInterval(this.timer)
+    clearInterval(this.timer)
   }
 
   start() {
-  	this.render();
-  	this.timer = setInterval(() => this.render(), 1000)
+    this.render();
+    this.timer = setInterval(() => this.render(), 1000)
   }
 }
 
