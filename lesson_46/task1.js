@@ -1,9 +1,9 @@
 "use sctrict";
 
 let dictionary = Object.create(null, {
-	toString: {
+  toString: {
     value() {
-  	  return Object.keys(this).join();
+      return Object.keys(this).join();
     }
   }
 });
