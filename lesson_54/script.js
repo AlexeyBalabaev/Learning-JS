@@ -43,3 +43,18 @@
 
   }
 }
+
+/* ----- */
+{
+  let json = "{ incorrect JSON }";
+
+  try{
+
+    let user = JSON.parse(json);   // error
+    alert( user.name );
+
+  } catch(err) {
+
+    alert( "Sorry, error in the data, we'll try to get them again" )
+  }
+}
