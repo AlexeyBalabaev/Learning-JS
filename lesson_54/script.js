@@ -107,3 +107,44 @@
     alert("JSON Error: " + e.message);   // JSON Error: Data is incomplete: no name
   }
 }
+
+/* ----- */
+{
+  let json = '{ "age": 30 }';   // data is incomplete
+
+  try {
+    user = JSON.parse(json);   // forgot to add "let" ahead user
+
+    // ...
+  } catch(err) {
+    alert("JSON Error: " + err);   // JSON Error: ReferenceError: user is not defined
+    // no JSON error
+  }
+}
+
+/* ----- */
+{
+  let json = '{ "age": 30 }';   // data is incomplete
+
+  try {
+
+    let user = JSON.parse(json);
+
+    if (!user.name) {
+      throw new SyntaxError("Data is incomplete: no name");
+    }
+
+    blabla();   // unexpected error
+
+    alert( user.name );
+
+  } catch(e) {
+
+    if (e.name == "SyntaxError") {
+      alert( "JSON Error: " + e.message );
+    } else {
+      throw e;
+    }
+    
+  }
+}
