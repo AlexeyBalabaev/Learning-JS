@@ -148,3 +148,40 @@
     
   }
 }
+
+/* ----- */
+{
+  function readData() {
+    let json = '{ "age": 30 }';
+
+    try {
+      // ...
+      blabla();   // error!
+    } catch(e) {
+      // ...
+      if (e.name != 'SyntaxError') {
+        throw e;   // exception throw
+      }
+    }
+  }
+
+  try {
+    readData();
+  } catch(e) {
+    alert( "External catch caught: " + e );   // caught!
+  }
+}
+
+/* ----- */
+{
+
+  try {
+    alert( 'try' );
+    if (confirm('Generate an error?')) BAD_CODE();
+  } catch(e) {
+    alert( 'catch' );
+  } finally {
+    alert( 'finally' );
+  }
+  
+}
