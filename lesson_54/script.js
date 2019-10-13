@@ -185,3 +185,31 @@
   }
   
 }
+
+/* ----- */
+{
+  let num = +prompt('Enter a positive integer?', 1);
+  let diff, result;
+
+  function fib(n) {
+    if (n < 0 || Math.trunc(n) != n) {
+      throw new Error("Must be a non-negative integer");
+    }
+
+    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+  }
+
+  let start = Date.now();
+
+  try {
+    result = fib(num);
+  } catch(e) {
+    result = 0;
+  } finally {
+    diff = Date.now() - start;
+  }
+
+  alert(result || "an error occured");
+
+  alert( `Execution took ${diff}ms` );
+}
