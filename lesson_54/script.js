@@ -188,7 +188,7 @@
 
 /* ----- */
 {
-  let num = +prompt('Enter a positive integer?', 1);
+  let num = +prompt('Enter a positive integer?', 35);
   let diff, result;
 
   function fib(n) {
@@ -212,4 +212,20 @@
   alert(result || "an error occured");
 
   alert( `Execution took ${diff}ms` );
+}
+
+/* ----- */
+{
+  function func() {
+
+    try {
+      return 1;
+    } catch(e) {
+      /* ... */
+    } finally {
+      alert('finally');
+    }
+  }
+
+  alert( func() );
 }
