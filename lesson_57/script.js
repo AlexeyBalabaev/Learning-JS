@@ -62,3 +62,22 @@
 
   promise.then(alert);   // will display "done!" after 1 second
 }
+
+/* ----- */
+{
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => reject(new Error("Error!")), 1000);
+  });
+
+  // .catch(f) it's the same that promise.then(null, f)
+  promise.catch(alert);   // will display "Errpr: Error!" after 1 second
+}
+
+/* ----- */
+{
+  new Promise ((resolve, reject) => {
+    // do something that takes time, and then call resolve/reject
+  })
+    .finally(() => alert('stop loading indicator'))
+    .then(result => 'show result', err => 'show error' )
+}
