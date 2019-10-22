@@ -44,7 +44,7 @@
 /* ----- */
 {
   let promise = new Promise(function(resolve, reject) {
-    setTTimeout(() => reject(new Error("Whoops!")), 1000);
+    setTimeout(() => reject(new Error("Whoops!")), 1000);
   });
 
   // reject will start the second function transferred to .then
@@ -80,4 +80,34 @@
   })
     .finally(() => alert('stop loading indicator'))
     .then(result => 'show result', err => 'show error' )
+}
+
+/* ----- */
+{
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve("result"), 1000);
+  })
+    .finally(() => alert("Promise completed."))
+    .then(result => alert(result));
+}
+
+/* ----- */
+{
+  new Promise((resolve, reject) => {
+    throw new Error("error");
+  })
+    .finally(() => alert("Promise completed."))
+    .catch(err => alert(err));
+}
+
+/* ----- */
+{
+  let promise = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
+
+  promise.then(
+    script => alert(`${script.src} downlload!`),
+    error => alert(`Error: ${error.message}.`)
+  );
+
+  promise.then(script => alert('ANother handler...'));
 }
