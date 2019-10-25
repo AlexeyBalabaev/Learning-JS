@@ -60,14 +60,14 @@
   });
 }
 
-/* ----- 
+/* ----- */
 {
-  loadScript("/article/promise-chaining/one.js")
+  loadScript("/files/one.js")
     .then(function(script) {
-      return loadScript("/article/promise-chaining/two.js");
+      return loadScript("/files/two.js");
     })
     .then(function(script) {
-      return loadScript("/article/promise-chaining/three.js");
+      return loadScript("/files/three.js");
     })
     .then(function(script) {
       one();
@@ -78,13 +78,23 @@
 
 // the same
 {
-  loadScript("/article/promise-chaining/one.js")
-    .then(script => loadScript("/article/promise-chaining/two.js"))
-    .then(script => loadScript("/article/promise-chaining/three.js"))
+  loadScript("/files/one.js")
+    .then(script => loadScript("/files/two.js"))
+    .then(script => loadScript("/files/three.js"))
     .then(script => {
       one();
       two();
       three();
     })
 }
-*/
+
+/* ----- */
+{
+  fetch('/files/user.json')
+    .then(function(response) {
+      return response.text();
+    })
+    .then(funciton(text) {
+      alert(text);
+    });
+}
