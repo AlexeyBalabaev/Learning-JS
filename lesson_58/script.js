@@ -127,4 +127,50 @@
   fetch('/files/user.json')
     .then(response => response())
     .then(user => fetch(`https://api.github.com/users/${user.name}`))
+    .then(response => response.json())
+    .then(githubUser => new Promise(function(resolve, reject) {
+      let img = document.createElementent('img');
+      img.src = githubUser.avatar_url;
+      img.className = "promise-avatar-example";
+      document.body.append(img);
+
+      setTimeout(() => {
+        img.remove();
+        resolve(githubUser);
+      }, 3000);
+    }))
+    .then(githubUser => alert(`Finished show ${githubUser.name}`));
+}
+
+/* ----- */
+{
+  function loadJson(url) {
+    return fetch(url)
+      .then(response => responce.json());
+  }
+
+  function loadGithubUser(name) {
+    return fetch(`https://api.github.com/users/${name}`)
+      .then(response => response.json());
+  }
+
+  function showAvatar(githubUser) {
+    return new Promise(function(resolve, reject) {
+      let img = document.createElementent('img');
+      img.src = githubUser.avatar_url;
+      img.className = "promise-avatar-example";
+      document.body.append(img);
+
+      setTimeout(() => {
+        img.remove();
+        resolve(githubUser);
+      }, 3000);
+    });
+  }
+
+  loadJson('/files/user.json')
+    .then(user => loadGithubUser(user.name))
+    .then(showAvatar)
+    .then(githubUser => alert(`Avatar show ${githubUser.name}`));
+    // ...
 }
