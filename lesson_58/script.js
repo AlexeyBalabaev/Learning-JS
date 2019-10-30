@@ -94,7 +94,37 @@
     .then(function(response) {
       return response.text();
     })
-    .then(funciton(text) {
+    .then(function(text) {
       alert(text);
     });
+}
+
+// the same
+{
+  fetch('/files/user.json')
+    .then(response => response.json())
+    .then(user => alert( user.name ));
+}
+
+/* ----- */
+{
+  fetch('/files/user.json')
+    .then(response => response.json())
+    .then(user => fetch(`https://api.github.com/users/${user.name}`))
+    .then(response => response.json())
+    .then(githubUser => {
+      let img = document.createElement('img');
+      img.src = githubUser.avatar_url;
+      img.className = "promise-avatar-example";
+      document.body.append(img);
+
+      setTimeout(() => img.remove(), 3000);
+    })
+}
+
+/* ----- */
+{
+  fetch('/files/user.json')
+    .then(response => response())
+    .then(user => fetch(`https://api.github.com/users/${user.name}`))
 }
