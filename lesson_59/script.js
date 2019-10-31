@@ -67,3 +67,45 @@
     alert("Error processed, continue to work");
   }).then(() => alert("Managment will movie to the next then"));
 }
+
+/* ----- */
+{
+  // the execution: catch -> catch -> then
+  new Promise((resolve, reject) => {
+    throw new Error("Error!");
+  }).catch(function(error) {
+    if (error insanceof URIError) {
+      // handle error
+    } else {
+      alert("Can not handle the error");
+
+      throw error;   // throw this or other error to the next catch
+    }
+  }).then(function() {
+    /* will fail */
+  }).catch(error => {
+    alert(`Unknown error: ${error}`);
+  });
+}
+
+/* ----- */
+{
+  new Promise(function() {
+    noSuchFunction();
+  })
+    .then(() => {
+      // handlers .then, on or more
+    });   // without .catch in the end
+}
+
+ /* ----- */ 
+ {
+   window.addEventListener('unhandledrejection', function(event) {
+     alert(event.promise);  // [object Promise]
+     alert(event.reason);   // Error: Error!
+   });
+
+   new Promise(function() {
+     throw new Error("Error!");
+   });
+ }
