@@ -2,16 +2,16 @@
 
 {
   fetch('https://no-such-server.blabla')   // error
-    .then(response => response.json())
+    .then(responce => responce.json())
     .catch(err => alert(err))   // TypeError: failed to fetch
 }
 
 /* ----- */
 {
   fetch('/files.user.json')
-    .then(response => response.json())
+    .then(response => responce.json())
     .then(user => fetch(`https://api.github.com/users/${user.name}`))
-    .then(response => response.json())
+    .then(responce => responce.json())
     .then(githubUser => new Promise((resolve, reject) => {
       let img = document.createElement('img');
       img.src = githubUser.avatar_url;
@@ -74,7 +74,7 @@
   new Promise((resolve, reject) => {
     throw new Error("Error!");
   }).catch(function(error) {
-    if (error instanceof URIError) {
+    if (error insanceof URIError) {
       // handle error
     } else {
       alert("Can not handle the error");
