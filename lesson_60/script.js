@@ -1,111 +1,59 @@
 "use strict";
 
 {
-  fetch('https://no-such-server.blabla')   // error
-    .then(responce => responce.json())
-    .catch(err => alert(err))   // TypeError: failed to fetch
+  Promise.all([
+    new Promise(resolve => setTimeout(() => resolve(1), 3000)),   // 1
+    new Promise(resolve => setTimeout(() => resolve(2), 2000)),   // 2
+    new Promise(reoslve => setTimeout(() => resolve(3), 1000))    // 3
+  ]).then(alert);   // when all promises will be fulfilled, result will be 1,2,3
+  // each of promise give element of array
 }
 
 /* ----- */
 {
-  fetch('/files.user.json')
-    .then(response => responce.json())
-    .then(user => fetch(`https://api.github.com/users/${user.name}`))
-    .then(responce => responce.json())
-    .then(githubUser => new Promise((resolve, reject) => {
-      let img = document.createElement('img');
-      img.src = githubUser.avatar_url;
-      img.className = "promise-avatar-example";
-      document.body.append(img);
+  let urls = [
+    'https://api.github.com/users/iliakan',
+    'https://api.github.com/users/remy',
+    'https://api,github.com/users/jeresig'
+  ];
 
-      setTimeout(() => {
-        img.remove();
-        resolve(githubUser);
-      }, 3000);
-    }))
-    .catch(error => alert(error.message));
+  let requests = urls.map(url => fetch(url));
+
+  // Promise.all will be wait for fulfilled all promises
+  Promise.all(requests)
+    .then(response => response.forEach(
+      response => alert(`${response.url}: ${response.status}`)
+    ));
 }
 
 /* ----- */
 {
-  new Promise((resolce, reject) => {
-    throw new Error("Error!");
-  }).catch(alert);   // Error: Error!
-}
+  let names = ['iliakan', 'remy', 'jeresig'];
 
-// the same
-{
-  new Promise((resolve, reject) => {
-    reject(new Error("Error!"));
-  }).catch(alert);   // Error: Error!
-}
+  let requese = names.map(name => fetch(`https://api.github.com/users/${name}`));
 
-/* ----- */
-{
-  new Promise((resolve, reject) => {
-    resolve("ok");
-  }).then((result) => {
-    throw new Error("Error!");
-  }).catch(alert);   // Error: Error!
+  Promise.all(requests)
+    .then(response => {
+      for(let response of responses) {
+        alert(`${response.url}: ${response.status}`);  // will show 200 for each of links
+      }
+
+      return responses;
+    })
+    .then(responses => Promise.all(responses.map(r => r.json())))
+    .then(users => users.forEach(user => alert(user.name)));
 }
 
 /* ----- */
 {
-  new Promise((resolve, reject) => {
-    resolve("ok");
-  }).then((result) => {
-    blabla();
-  }).catch(alert);   // ReferenceError: blabla is not defined
+  Promise.all([
+    new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
+    new Promise((resolve, reject) => setTimeout(() => reject(new Error("Error!")), 2000)),
+    new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+  ]).catch(alert);   // Error: Error!
 }
 
 /* ----- */
 {
-  // the execution: catch -> then
-  new Promise((resolve, reject) => {
-    throw new Error("Error!");
-  }).catch(function(error) {
-    alert("Error processed, continue to work");
-  }).then(() => alert("Managment will movie to the next then"));
+  
 }
-
-/* ----- */
-{
-  // the execution: catch -> catch -> then
-  new Promise((resolve, reject) => {
-    throw new Error("Error!");
-  }).catch(function(error) {
-    if (error insanceof URIError) {
-      // handle error
-    } else {
-      alert("Can not handle the error");
-
-      throw error;   // throw this or other error to the next catch
-    }
-  }).then(function() {
-    /* will fail */
-  }).catch(error => {
-    alert(`Unknown error: ${error}`);
-  });
-}
-
-/* ----- */
-{
-  new Promise(function() {
-    noSuchFunction();
-  })
-    .then(() => {
-      // handlers .then, on or more
-    });   // without .catch in the end
-}
-
- /* ----- */ 
- {
-   window.addEventListener('unhandledrejection', function(event) {
-     alert(event.promise);  // [object Promise]
-     alert(event.reason);   // Error: Error!
-   });
-
-   new Promise(function() {
-     throw new Error("Error!");
-   });
- }
