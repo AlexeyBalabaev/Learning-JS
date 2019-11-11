@@ -45,7 +45,7 @@
     };
   };
 
-  // usig
+  // using
   // f = promisify(f, true);
   // f(...).then(arrayOfResults => ..., err => ...)
 }
