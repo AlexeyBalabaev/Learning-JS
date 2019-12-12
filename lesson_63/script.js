@@ -184,3 +184,15 @@ async function f() {
 
   f().catch(alert);   // TypeError:failed to fetch
 }
+
+// we can so (with Promise.all):
+/* ----- 
+{
+  
+  let results = await Promise.all([
+    fetch(url1),
+    fetch(url2),
+    ...
+  ]);
+}
+*/
