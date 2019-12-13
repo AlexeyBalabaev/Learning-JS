@@ -92,9 +92,11 @@
     to: 5,
 
     *[Symbol.iterator]() {
-      for(let value = this.from; value <= this.to; value)
+      for(let value = this.from; value <= this.to; value++) {
+        yield value;
+      }
     }
-  }
+  };
 }
 
 /* ----- */
@@ -134,7 +136,7 @@
   function* generateAlphaNum() {
 
     // yield* generateSequence(48, 57);
-    for (leti = 48; i <= 57; i++) yield i;
+    for (let i = 48; i <= 57; i++) yield i;
 
     // yield* generateSequence(65, 90);
     for (let i = 65; i <= 90; i++) yield i;
@@ -151,4 +153,75 @@
   }
 
   alert(str);   // 0..9A..Za..z
+}
+
+/* ----- */
+{
+  function* gen() {
+    let result = yield "2 + 2 + ?";
+
+    alert(result);
+  }
+
+  let generator = gen();
+
+  let question = generator.next().value;   // <-- yield return value
+
+  generator.next(4);   // passing the result to generator
+}
+
+/* ----- */
+{
+  function* gen() {
+    let ask1 = yield "2 + 2 = ?";
+    alert(ask1);   // 4
+
+    let ask2 = yield "3 * 3 = ?";
+    alert(ask2);   // 9
+  }
+
+  let generator = gen();
+
+  alert( generator.next().value );   // "2 + 2 = ?"
+
+  alert( generator.next(4).value );  // "3 * 3 = ?"
+
+  alert( generator.next(9).done );   // true
+}
+
+/* ----- */
+{
+  function* gen() {
+    try {
+      let result = yield "2 + 2 = ?";
+
+      alert("Programm executtion will not reach this line, because an exception will occur above");
+    } catch(err) {
+      alert(err);   // will show the error
+    }
+  }
+
+  let generator = gen();
+
+  let question = generator.next().value;
+
+  generator.throw(new Error("The answer not to find in my database"));
+}
+
+// the same
+/* ----- */
+{
+  function* generate() {
+    let result = yield "2 + 2 = ?";    // error in this string
+  }
+
+  let generator = generate();
+
+  let question = generator.next().value;
+
+  try {
+    generator.throw(new Error("The answer not to find in my database"));
+  } catch(err) {
+    alert(err);    // will show the error
+  }
 }
