@@ -100,3 +100,84 @@
 
   })();
 }
+
+// Simple iterable object
+/* ----- */
+{
+  let range = {
+    from: 1,
+    to: 5,
+
+    *[Symbol.iterator]() {
+      for(let value = this.from; value <= this.to; value++) {
+        yield value;
+      }
+    }
+  };
+
+  for(let value of range) {
+    alert(value);   // 1, then 2, then 3, then 4, then 5
+  }
+}
+
+// Async iterable object
+{
+  let range = {
+    from: 1,
+    to: 5,
+
+    async *[Symbol.asyncIterator]() {
+      for(let value = this.from; value <= this.to; value++) {
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        yield value;
+      }
+    }
+  };
+
+  (async () => {
+    for await (let value of range) {
+      alert(value);   // 1, then 2, then 3, then 4, then 5
+    }
+  })
+}
+
+/* ----- */
+{
+  async function* fetchCommits(repo) {
+    let url = `https://api.github.com/repos/${repo}/commits`;
+
+    while (url) {
+      const response = await fetch(url, {
+        headers: {'User-Agent': 'Our script'},
+      });
+
+      const body = await response.json();
+
+      let nextPage = response.headers.get('Link').match(/<(.*?)>; rel="next"/);
+      nextPage = extPage && nextPage[1];
+
+      url = nextPage;
+
+      for(let commit of body) {
+        yield commit;
+      }
+    }
+  }
+
+  (async () => {
+
+    let count = 0;
+
+    for await (const commit of fetchCommits('javascript-tutorial/en.javascript.info')) {
+
+      console.log(commit.author.login);
+
+      if (++count == 100) {
+        break;
+      }
+    }
+
+  })();
+}
