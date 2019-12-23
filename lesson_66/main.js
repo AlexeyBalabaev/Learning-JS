@@ -1,10 +1,8 @@
 "use strict";
 
-{
-  import {sayHi} from './sayHi.js';
+import {sayHi} from './sayHi.js';
 
-  alert(sayHi);   // function...
-  sayHi('John');  // Hello, John!
+alert(sayHi);   // function...
+sayHi('John');  // Hello, John!
 
-  document.body.innerHTML = sayHi('John');
-}
+document.body.innerHTML = sayHi('John');
