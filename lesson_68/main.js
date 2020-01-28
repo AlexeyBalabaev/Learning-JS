@@ -113,3 +113,48 @@
   let User = user.default;   // default export
   new User('John');
 }
+
+/* ----- */
+{
+  // reexport
+  export {sayHi} from './say.js';
+
+  export {default as User} from './user.js';
+}
+
+/* ----- */
+{
+  // auth/index.js
+
+  // import 'login/logout' and export it
+  import {login, logout} from './helpers.js';
+  export {login, logout};
+
+  // import 'default export' like User and export it
+  import User from './user.js';
+  export {User};
+}
+
+{
+  // 'export ... from ...' - just more short variant
+
+  // import 'login/logout' and export it
+  export {login, logout} from './helpers.js';
+
+  // import 'default export' like User and export it
+  export {default as User} from './user.js';
+}
+
+/* ----- */
+// reexport of defualt export
+{
+  // user.js
+  export default class User {
+    // ...
+  }
+}
+
+{
+  export * from './user.js';   // for reexport named exports
+  export {default} from '.user.js';   // for reexport of default
+}
