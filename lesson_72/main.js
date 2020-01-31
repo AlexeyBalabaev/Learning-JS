@@ -80,3 +80,16 @@
   alert( curriedSum(1)(2, 3) );   // 6
   alert( curriedSum(1)(2)(3) );   // 6
 }
+
+{
+  // the result of the call "curry(func)" is wrapper curried:
+  function curried(...args) {
+    if (args.length >= func.length) {
+      return func.apply(this, args);
+    } else {
+      return function pass(...args2) {
+        return curried.apply(this, args.concat(args2));
+      }
+    }
+  };
+}
