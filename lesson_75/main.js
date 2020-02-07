@@ -38,5 +38,14 @@
   alert( chapter.closest('.book') );   // UL
   alert( chapter.closest('.contents') );   // DIV
 
-  alert( chapter.closest('h1') );   // null (because 'h1' - isn't parent)
+  alert( chapter.closest('h1') );   // null (because 'h1' - isn't the parent)
+}
+
+/* ----- */
+{
+  let inputs = table.getElementsByTagName('input');
+
+  for (let input of inputs) {
+    alert( input.value + ': ' + input.checked );
+  }
 }
