@@ -41,3 +41,13 @@ let wrap2 = document.querySelector('.wrap2');
 
 wrap2.innerHTML = '<b>test';
 alert( wrap2.innerHTML );   // <b>test</b> (corrected)
+
+/* ----- */
+let elem1 = document.querySelector('.elem1');
+
+elem1.innerHTML += "<div>Hello!</div>";
+elem1.innerHTML += "How are you?";
+
+/* ----- */
+let elem2 = document.querySelector('.elem2');
+alert(elem2.outerHTML);   // <div class="elem2">Hello <b>World</b>!</div>
