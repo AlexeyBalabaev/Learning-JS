@@ -14,7 +14,7 @@ alert( document.body instanceof EventTarget );   // true
 let elem = document.body;
 alert(elem.nodeType);   // 1 -> element
 
-alert(elem.firstChild.nodeType);   // 3 -> text
+alert(elem.firstChild.nodeType);   // 3 -> text or 8 -> comment
 
 alert( document.nodeType );   // 9 -> object of document
 
@@ -51,3 +51,44 @@ elem1.innerHTML += "How are you?";
 /* ----- */
 let elem2 = document.querySelector('.elem2');
 alert(elem2.outerHTML);   // <div class="elem2">Hello <b>World</b>!</div>
+
+/* ----- */
+let elem3 = document.querySelector('.elem3');
+
+elem3.outerHTML = '<p>New element</p>';   // change it
+
+alert(elem3.outerHTML);   // <div class="elem3">Hello World!</div>
+
+/* ----- */
+// let text = elem3.nextSibling;
+// alert(text.data);   // Hello
+
+// let comment = text.nextSibling;
+// alert(comment.data);   // comment
+
+/* ----- */
+let news = document.querySelector('.news');
+alert(news.textContent);
+
+/* ----- */
+let name1 = document.querySelector('.name1');
+let name2 = document.querySelector('.name2');
+let name = prompt("Enter your name?", "<b>Vinni-Puh!</b>");
+
+name1.innerHTML = name;
+name2.textContent = name;
+
+/* ----- */
+let hiddenIt = document.querySelector('.hiddenIt');
+hiddenIt.hidden = true;
+
+/* ----- */
+let blinkedElem = document.querySelector('.blinked');
+setInterval(() => blinkedElem.hidden = !blinkedElem.hidden, 1000);
+
+/* ----- */
+let input = document.querySelector('.input');
+
+alert(input.type);   // text
+alert(input.id);     // elem-input
+alert(input.value);  // value
