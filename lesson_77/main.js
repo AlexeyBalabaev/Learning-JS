@@ -44,3 +44,23 @@ alert( elem1.outerHTML );   // checking attribute (yes)
 for (let attr of elem1.attributes) {
   alert( `${attr.name} = ${attr.value}` );
 }
+
+/* ----- */
+let inputChange1 = document.querySelector('.input1');
+
+// attribute => property
+inputChange1.setAttribute('id', 'id');
+alert(inputChange1.id);   // id
+
+// property => attribute
+inputChange1.id = 'newId';
+alert(inputChange1.getAttribute('id'));   // newId
+
+/* ----- */
+// attribute => property
+inputChange1.setAttribute('value', 'text');
+alert(inputChange1.value);   // text
+
+// property => attribute
+inputChange1.value = 'newValue';
+alert(inputChange1.getAttribute('value'));   // text
