@@ -57,6 +57,7 @@ inputChange1.id = 'newId';
 alert(inputChange1.getAttribute('id'));   // newId
 
 /* ----- */
+// exception
 // attribute => property
 inputChange1.setAttribute('value', 'text');
 alert(inputChange1.value);   // text
@@ -64,3 +65,51 @@ alert(inputChange1.value);   // text
 // property => attribute
 inputChange1.value = 'newValue';
 alert(inputChange1.getAttribute('value'));   // text
+
+/* ----- */
+let checkBox = document.querySelector('.check');
+
+alert(checkBox.getAttribute('checked'));   // value of attribute: empty string
+alert(checkBox.checked);   // value of attribute: true
+
+/* ----- */
+let div = document.querySelector('.div');
+
+// string
+alert(div.getAttribute('style'));   // colore:red; font-size:120%
+
+// object
+alert(div.style);   // [object CSSStyleDeclaration]
+alert(div.style.color);   // red
+
+/* ----- */
+// attribute
+let link = document.querySelector('.link');
+
+alert(link.getAttribute('href'));   // #hello
+alert(link.href);   // full URL: http://...
+
+/* ----- */
+let user = {
+  name: "Pete",
+  age: 25
+};
+
+for (let div of document.querySelectorAll('[show-info]')) {
+  let field =  div.getAttribute('show-info');
+  div.innerHTML = user[field];   // at first 'Pete' to 'name', then '25' to 'age'
+}
+
+/* ----- */
+let elemData = document.querySelector('.elem-data');
+
+alert( elemData.dataset.about );   // Elephants
+
+/* ----- */
+let order = document.querySelector('.order');
+
+// reading
+alert( order.dataset.orderState );   // new
+
+// changing
+order.dataset.orderState = "pending";
