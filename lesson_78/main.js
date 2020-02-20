@@ -52,3 +52,17 @@ div3.innerHTML = "<strong>Hello everything!</strong> You were reading the import
 
 document.body.append(div);
 setTimeout(() => div3.remove(), 1000);
+
+/* ----- */
+let first = document.querySelector('.first');
+let second = document.querySelector('.second');
+
+second.after(first);
+
+/* ----- */
+let div4 = document.querySelector('.div44');
+
+let div5 = div4.cloneNode(true);   // clone
+div5.querySelector('strong').innerHTML = 'Bye everything!';   // change
+
+div4.after(div5);   // show
