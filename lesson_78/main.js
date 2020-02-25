@@ -66,3 +66,38 @@ let div5 = div4.cloneNode(true);   // clone
 div5.querySelector('strong').innerHTML = 'Bye everything!';   // change
 
 div4.after(div5);   // show
+
+/* ----- */
+let ul1 = document.querySelector('.ul1');
+
+function getListContent() {
+  let fragment = new DocumentFragment();
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    fragment.append(li);
+  }
+
+  return fragment;
+}
+
+ul1.append(getListContent());
+
+/* ----- */
+// we can do the same
+let ul2 = document.querySelector('.ul2');
+
+function getListContentAnother() {
+  let result = [];
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    result.push(li);
+  }
+
+  return result;
+}
+
+ul2.append(...getListContentAnother());
