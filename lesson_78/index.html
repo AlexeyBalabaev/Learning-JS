@@ -14,12 +14,28 @@
       color: #3c763d;
       background-color: #dff0d8;
     }
+
+    table.calendar {
+      border-collapse: collapse;
+    }
+
+    .calendar td,
+    .calendar th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    .calendar th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
   </style>
 
 </head>
 <body>
 
-  <!-- <ol class="ol">
+  <ol class="ol">
     <li>0</li>
     <li>1</li>
     <li>2</li>
@@ -43,27 +59,27 @@
     <strong>Hello everything!</strong> You were reading the important message.
   </div>
 
-  <script src="main.js"></script> -->
+  <script src="main.js"></script>
 
   <!-- task 1 -->
-  <!-- <ol class="clear-box">
+  <ol class="clear-box">
     <li>Hello</li>
     <li>World</li>
   </ol>
 
-  <script src="task1.js"></script> -->
+  <script src="task1.js"></script>
 
-  <!-- task2 -->
-  <!-- <h1>Create List:</h1>
+  <!-- task 2 -->
+  <h1>Create List:</h1>
 
-  <script src="task2.js"></script> -->
+  <script src="task2.js"></script>
 
-  <!-- task3 -->
-  <!-- <div class="container"></div>
+  <!-- task 3 -->
+  <div class="container"></div>
 
   <div class="container-second"></div>
 
-  <script src="task3.js"></script> -->
+  <script src="task3.js"></script>
 
   <!-- task 4 -->
   <ul class="nature">
@@ -104,6 +120,60 @@
   </ul>
 
   <script src="task4.js"></script>
+
+  <!-- task 5 -->
+  <div class="table-box1"></div>
+  <div class="table-box2"></div>
+  <div class="table-box3"></div>
+  <div class="table-box4"></div>
+  <div class="table-box5"></div>
+
+  <script src="task5.js"></script>
+
+  <!-- task 6 -->
+  <div class="clock">
+    <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>
+  </div>
+
+  
+  <input type="button" onclick="clockStart()" value="Start">
+  <input type="button" onclick="clockStop()" value="Stop">
+
+  <script src="task6.js"></script>
+
+  <!-- task 7 -->
+  <ul class="ul-list">
+    <li class="item-one">1</li>
+    <li class="item-two">4</li>
+  </ul>
+
+  <script src="task7.js"></script>
+
+  <!-- task 8 -->
+  <table class="table-sort">
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Возраст</th>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Smith</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Pete</td>
+      <td>Brown</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Ann</td>
+      <td>Lee</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <script src="task8.js"></script>
 
 </body>
 </html>
