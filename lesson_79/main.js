@@ -48,3 +48,9 @@ let example2 = document.querySelector('.example2');
 
 alert(example2.style.color);   // empty
 alert(example2.style.marginTop);   // empty
+
+/* ----- */
+let computedStyle = getComputedStyle(example2);
+
+alert(computedStyle.marginTop);   // 5px
+alert(computedStyle.color);   // rgb(255, 0, 0)
