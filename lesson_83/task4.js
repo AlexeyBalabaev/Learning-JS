@@ -9,7 +9,7 @@ field.onclick = function(event) {
   
   let ballCoords = {
     top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
-    left: event.clientX - fieldCoords.left - fieldClientLeft - ball.clientWidth / 2
+    left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
   };
 
   if (ballCoords.top < 0) ballCoords.top = 0;
@@ -21,7 +21,7 @@ field.onclick = function(event) {
   }
 
   if (ballCoords.top + ball.clientHeight > field.clientHeight) {
-    ballCoords.top = field,clientHeight - ball.clientHeight;
+    ballCoords.top = field.clientHeight - ball.clientHeight;
   }
 
   ball.style.left = ballCoords.left + 'px';
