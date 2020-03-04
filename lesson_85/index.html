@@ -65,6 +65,40 @@
     #bagua-table .highlight {
       background: red;
     }
+
+    /* task 1 */
+    .task1 h3 {
+      margin: 0;
+      padding-bottom: .3em;
+      padding-right: 20px;
+      font-size: 1.1em;
+    }
+
+    .task1 p {
+      margin: 0;
+      padding: 0 0 .5em;
+    }
+
+    .task1 .pane {
+      background: #edf5e1;
+      padding: 10px 20px 10px;
+      border-top: solid 2px #c4df9b;
+      position: relative;
+    }
+
+    .task1 .remove-button {
+      position: absolute;
+      font-size: 110%;
+      top: 0;
+      color: darkred;
+      right: 10px;
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
   
   </style>
   
@@ -154,6 +188,72 @@
   </div>
 
   <script src="main.js"></script>
+
+  <!-- task 1 -->
+  <div class="task1">
+    <div class="pane">
+      <h3>Horse</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem obcaecati aliquam voluptatum 
+        unde porro magnam molestias quibusdam hic voluptatem qui.</p>
+      <button class="remove-button">[x]</button>
+    </div>
+    <div class="pane">
+      <h3>Donkey</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur eius maxime laborum 
+        impedit illo quasi nam velit nesciunt harum sunt sit sequi distinctio dicta consequuntur 
+        quidem ipsum asperiores nostrum facere, est culpa cupiditate vel officia.</p>
+      <button class="remove-button">[x]</button>
+    </div>
+    <div class="pane">
+      <h3>Cat</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, eveniet optio autem 
+        eius, nulla nemo odio cum tempora voluptatem saepe aperiam pariatur atque qui assumenda, 
+        nostrum odit distinctio. Debitis, velit?</p>
+      <button class="remove-button">[x]</button>
+    </div>
+  </div>
+
+  <script src="task1.js"></script>
+
+  <!-- task 2 -->
+  <div class="task2">
+    <ul class="tree" id="tree">
+      <li>Animals
+        <ul>
+          <li>Mammals
+            <ul>
+              <li>Cows</li>
+              <li>Donkeys</li>
+              <li>Dogs</li>
+              <li>Tigers</li>
+            </ul>
+          </li>
+          <li>Other
+            <ul>
+              <li>Snakes</li>
+              <li>Birds</li>
+              <li>Lizards</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Fishes
+        <ul>
+          <li>Aquarium
+            <ul>
+              <li>Guppy</li>
+              <li>Angelfish</li>
+            </ul>
+          </li>
+          <li>Marine
+            <ul>
+              <li>Sea trout</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
 </body>
 </html>
