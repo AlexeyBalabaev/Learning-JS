@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+</head>
+<body>
+
+  <span>Cancel</span>
+  <a href="/" onclick="return false">Push here</a>
+  <span>or</span>
+  <a href="/" onclick="event.preventDefault()">here</a>
+
+  <ul class="menu">
+    <li><a href="/html">HTML</a></li>
+    <li><a href="/javascript">JavaScript</a></li>
+    <li><a href="/css">CSS</a></li>
+  </ul>
+
+  <input type="text" value="Focus is working" onfocus="this.value=''">
+  <input type="text" onmousedown="return false" onfocus="this.value=''" value="Click me">
+
+  <br><br><br>
+
+  <button>The right click is calls a context menu of bruiser</button>
+  <button oncontextmenu="alert('We create our menu'); return false">
+    The right click calls our context menu
+  </button>
+
+  <br><br><br>
+
+  <p>The right click here calls the context menu of document</p>
+  <button class="btn-context">The right click here calls the context menu of button</button>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
