@@ -99,6 +99,33 @@
       background: transparent;
       cursor: pointer;
     }
+
+    /* task 2 */
+    .tree span:hover {
+      font-weight: bold;
+    }
+
+    .tree span {
+      cursor: pointer;
+    }
+
+    /* task 3 */
+    .task3 table {
+       border-collapse: collapse;
+    }
+
+    .task3 th, .task3 td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+
+    .task3 th {
+      cursor: pointer;
+    }
+
+    .task3 th:hover {
+      background: grey;
+    }
   
   </style>
   
@@ -256,6 +283,43 @@
   </div>
 
   <script src="task2.js"></script>
+
+  <!-- task 3 -->
+  <div class="task3">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th data-type="number">Age</th>
+          <th data-type="string">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td>John</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Peter</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Jessy</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Mary</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Jack</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="task3.js"></script>
+  
 
 </body>
 </html>
