@@ -126,6 +126,23 @@
     .task3 th:hover {
       background: grey;
     }
+
+    /* task 4 */
+    .task4 {
+      height: 2000px;
+    }
+
+    .task4 .tooltip {
+      position: fixed;
+      padding: 10px 20px;
+      border: 1px solid #b3c9ce;
+      border-radius: 4px;
+      text-align: center;
+      font: italic 14px/1.3 sans-serif;
+      color: #333;
+      background: #fff;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+    }
   
   </style>
   
@@ -319,7 +336,24 @@
   </div>
 
   <script src="task3.js"></script>
+
+  <!-- task 4 -->
+  <div class="task4">
+
+    <p>lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala</p>
+    <p>lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala</p>
+    <p>lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala</p>
+
+    <button data-tooltip="this prompt is longer than element">short button</button>
+    <button data-tooltip="HTML <br>prompt">button again</button>
   
+  </div>
+
+  <script src="task4.js"></script>
 
 </body>
 </html>
