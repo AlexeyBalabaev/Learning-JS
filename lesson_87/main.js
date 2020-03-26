@@ -66,3 +66,33 @@ rabbit.addEventListener('hide', function(event) {
     event.preventDefault();
   }
 });
+
+/* ----- */
+let menu1 = document.querySelector('.menu1');
+
+menu1.onclick = function() {
+  alert(1);
+
+  menu1.dispatchEvent(new CustomEvent("menu-open1", {
+    bubbles: true
+  }));
+
+  alert(2);
+};
+
+document.addEventListener('menu-open1', () => alert('nested event'));
+
+/* ----- */
+let menu2 = document.querySelector('.menu2');
+
+menu2.onclick = function() {
+  alert(1);
+
+  setTimeout(() => menu2.dispatchEvent(new CustomEvent("menu-open2", {
+    bubbles: true
+  })));
+
+  alert(2);
+};
+
+document.addEventListener('menu-open2', () => alert('nested event'));
