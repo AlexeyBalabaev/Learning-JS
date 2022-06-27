@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+  <style>
+    /* task 1 */
+    .contents {
+      padding: 5px;
+      border: 1px green solid;
+    }
+
+    /* task 2 */
+    .task2 {
+      margin: 0;
+      padding: 0;
+      font: 75%/120% sans-serif;
+    }
+
+    .task2 h2 {
+      font: bold 190%/100% sans-serif;
+      margin: 0 0 .2em;
+    }
+
+    .task2 h2 em {
+      font: normal 80%/100% sans-serif;
+      color: #999999;
+    }
+
+    .task2 .largeImg {
+      border: solid 1px #ccc;
+      width: 550px;
+      height: 400px;
+      padding: 5px;
+    }
+
+    .task2 .thumbs a {
+      border: solid 1px #ccc;
+      width: 100px;
+      height: 100px;
+      padding: 3px;
+      margin: 2px;
+      float: left;
+    }
+
+    .task2 .thumbs a:hover {
+      border-color: #FF9900;
+    }
+
+    .task2 .thumbs li {
+      list-style: none;
+    }
+
+    .task2 .thumbs {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <span>Cancel</span>
+  <a href="/" onclick="return false">Push here</a>
+  <span>or</span>
+  <a href="/" onclick="event.preventDefault()">here</a>
+
+  <ul class="menu">
+    <li><a href="/html">HTML</a></li>
+    <li><a href="/javascript">JavaScript</a></li>
+    <li><a href="/css">CSS</a></li>
+  </ul>
+
+  <input type="text" value="Focus is working" onfocus="this.value=''">
+  <input type="text" onmousedown="return false" onfocus="this.value=''" value="Click me">
+
+  <br><br><br>
+
+  <button>The right click is calls a context menu of bruiser</button>
+  <button oncontextmenu="alert('We create our menu'); return false">
+    The right click calls our context menu
+  </button>
+
+  <br><br><br>
+
+  <p>The right click here calls the context menu of document</p>
+  <button class="btn-context">The right click here calls the context menu of button</button>
+
+  <p>The right click here calls the context menu of document</p>
+  <button class="btn-context2">The right click here calls the context menu of button 
+    (added event.stopPropagation)</button>
+
+  <p>The right click here calls the context menu of document (added a check event.defaultPrevented)</p>
+  <button class="btn-context3">The right click here calls the context menu of button</button>
+
+  <script src="main.js"></script>
+
+  <!-- task 1 -->
+  <fieldset class="contents">
+    <legend>#contents</legend>
+    <p>
+      Как насчёт того, чтобы прочитать <a href="http://wikipedia.org">Википедию</a> или посетить <a href="http://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?
+    </p>
+  </fieldset>
+
+  <script src="task1.js"></script>
+
+  <!-- task 2 -->
+  <div class="task2">
+    <p>
+      <img class="largeImg" src="https://en.js.cx/gallery/img1-lg.jpg" alt="Large image">
+    </p>
+
+    <ul class="thumbs">
+      <li>
+        <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2">
+          <img src="https://en.js.cx/gallery/img2-thumb.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3">
+          <img src="https://en.js.cx/gallery/img3-thumb.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4">
+          <img src="https://en.js.cx/gallery/img4-thumb.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5">
+          <img src="https://en.js.cx/gallery/img5-thumb.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6">
+          <img src="https://en.js.cx/gallery/img6-thumb.jpg">
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script src="task2.js"></script>
+
+</body>
+</html>

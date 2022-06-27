@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+
+    #bagua-table th {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #bagua-table td {
+      width: 150px;
+      white-space: nowrap;
+      text-align: center;
+      vertical-align: bottom;
+      padding-top: 5px;
+      padding-bottom: 12px;
+    }
+
+    #bagua-table .nw {
+      background: #999;
+    }
+
+    #bagua-table .n {
+      background: #03f;
+      color: #fff;
+    }
+
+    #bagua-table .ne {
+      background: #ff6;
+    }
+
+    #bagua-table .w {
+      background: #ff0;
+    }
+
+    #bagua-table .c {
+      background: #60c;
+      color: #fff;
+    }
+
+    #bagua-table .e {
+      background: #09f;
+      color: #fff;
+    }
+
+    #bagua-table .sw {
+      background: #963;
+      color: #fff;
+    }
+
+    #bagua-table .s {
+      background: #f60;
+      color: #fff;
+    }
+
+    #bagua-table .se {
+      background: #0c3;
+      color: #fff;
+    }
+
+    #bagua-table .highlight {
+      background: red;
+    }
+
+    /* task 1 */
+    .task1 h3 {
+      margin: 0;
+      padding-bottom: .3em;
+      padding-right: 20px;
+      font-size: 1.1em;
+    }
+
+    .task1 p {
+      margin: 0;
+      padding: 0 0 .5em;
+    }
+
+    .task1 .pane {
+      background: #edf5e1;
+      padding: 10px 20px 10px;
+      border-top: solid 2px #c4df9b;
+      position: relative;
+    }
+
+    .task1 .remove-button {
+      position: absolute;
+      font-size: 110%;
+      top: 0;
+      color: darkred;
+      right: 10px;
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* task 2 */
+    .tree span:hover {
+      font-weight: bold;
+    }
+
+    .tree span {
+      cursor: pointer;
+    }
+
+    /* task 3 */
+    .task3 table {
+       border-collapse: collapse;
+    }
+
+    .task3 th, .task3 td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+
+    .task3 th {
+      cursor: pointer;
+    }
+
+    .task3 th:hover {
+      background: grey;
+    }
+
+    /* task 4 */
+    .task4 {
+      height: 2000px;
+    }
+
+    .task4 .tooltip {
+      position: fixed;
+      padding: 10px 20px;
+      border: 1px solid #b3c9ce;
+      border-radius: 4px;
+      text-align: center;
+      font: italic 14px/1.3 sans-serif;
+      color: #333;
+      background: #fff;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+    }
+  
+  </style>
+  
+</head>
+<body>
+
+  <table id="bagua-table">
+    <tr>
+      <th colspan="3">Квадрат<em>Bagua</em>: Направление, Элемент, Цвет, Значение</th>
+    </tr>
+    <tr>
+      <td class="nw"><strong>Северо-Запад</strong>
+        <br>Металл
+        <br>Серебро
+        <br>Старейшины
+      </td>
+      <td class="n"><strong>Север</strong>
+        <br>Вода
+        <br>Синий
+        <br>Перемены
+      </td>
+      <td class="ne"><strong>Северо-Восток</strong>
+        <br>Земля
+        <br>Жёлтый
+        <br>Направление
+      </td>
+    </tr>
+    <tr>
+      <td class="w"><strong>Запад</strong>
+        <br>Металл
+        <br>Золото
+        <br>Молодость
+      </td>
+      <td class="c"><strong>Центр</strong>
+        <br>Всё
+        <br>Пурпурный
+        <br>Гармония
+      </td>
+      <td class="e"><strong>Восток</strong>
+        <br>Дерево
+        <br>Синий
+        <br>Будущее
+      </td>
+    </tr>
+    <tr>
+      <td class="sw"><strong>Юго-Запад</strong>
+        <br>Земля
+        <br>Коричневый
+        <br>Спокойствие
+      </td>
+      <td class="s"><strong>Юг</strong>
+        <br>Огонь
+        <br>Оранжевый
+        <br>Слава
+      </td>
+      <td class="se"><strong>Юго-Восток</strong>
+        <br>Дерево
+        <br>Зелёный
+        <br>Роман
+      </td>
+    </tr>
+  </table>
+
+  <div class="menu">
+    <button data-action="save">Save</button>
+    <button data-action="load">Load</button>
+    <button data-action="search">Search</button>
+  </div>
+
+  <div class="counter-box">
+    <div class="counter-box__elem">
+      <span>Counter 1:</span><input type="button" value="1" data-counter>
+    </div>
+    <div class="counter-box__elem">
+      <span>Counter 2:</span><input type="button" value="2" data-counter>
+    </div>
+  </div>
+
+  <div class="toggle-box">
+    <button data-toggle-id="subscribe-mail">
+      Show the form of subscribe
+    </button>
+    
+    <form id="subscribe-mail" hidden>
+      You mail: <input type="email">
+    </form>
+  </div>
+
+  <script src="main.js"></script>
+
+  <!-- task 1 -->
+  <div class="task1">
+    <div class="pane">
+      <h3>Horse</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem obcaecati aliquam voluptatum 
+        unde porro magnam molestias quibusdam hic voluptatem qui.</p>
+      <button class="remove-button">[x]</button>
+    </div>
+    <div class="pane">
+      <h3>Donkey</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur eius maxime laborum 
+        impedit illo quasi nam velit nesciunt harum sunt sit sequi distinctio dicta consequuntur 
+        quidem ipsum asperiores nostrum facere, est culpa cupiditate vel officia.</p>
+      <button class="remove-button">[x]</button>
+    </div>
+    <div class="pane">
+      <h3>Cat</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, eveniet optio autem 
+        eius, nulla nemo odio cum tempora voluptatem saepe aperiam pariatur atque qui assumenda, 
+        nostrum odit distinctio. Debitis, velit?</p>
+      <button class="remove-button">[x]</button>
+    </div>
+  </div>
+
+  <script src="task1.js"></script>
+
+  <!-- task 2 -->
+  <div class="task2">
+    <ul class="tree" id="tree">
+      <li>Animals
+        <ul>
+          <li>Mammals
+            <ul>
+              <li>Cows</li>
+              <li>Donkeys</li>
+              <li>Dogs</li>
+              <li>Tigers</li>
+            </ul>
+          </li>
+          <li>Other
+            <ul>
+              <li>Snakes</li>
+              <li>Birds</li>
+              <li>Lizards</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Fishes
+        <ul>
+          <li>Aquarium
+            <ul>
+              <li>Guppy</li>
+              <li>Angelfish</li>
+            </ul>
+          </li>
+          <li>Marine
+            <ul>
+              <li>Sea trout</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script src="task2.js"></script>
+
+  <!-- task 3 -->
+  <div class="task3">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th data-type="number">Age</th>
+          <th data-type="string">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td>John</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Peter</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Jessy</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Mary</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Jack</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="task3.js"></script>
+
+  <!-- task 4 -->
+  <div class="task4">
+
+    <p>lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala</p>
+    <p>lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala</p>
+    <p>lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala lalalalalala 
+      lalalalalala lalalalalala lalalalalala lalalalalala</p>
+
+    <button data-tooltip="this prompt is longer than element">short button</button>
+    <button data-tooltip="HTML <br>prompt">button again</button>
+  
+  </div>
+
+  <script src="task4.js"></script>
+
+</body>
+</html>

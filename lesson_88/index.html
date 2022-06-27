@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+    * {
+      display: block;
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    .task__list-item {
+      cursor: pointer;
+    }
+
+    .selected {
+      background: grey;
+    }
+  </style>
+
+</head>
+<body>
+
+  <button class="example1">Push Alt+Shift+Click at me!</button>
+
+  <input type="text" onmousemove="this.value=event.clientX+':'+event.clientY" value="Point the mouse at me (window)">
+  <input type="text" onmousemove="this.value=event.pageX+':'+event.pageY" value="Point the mouse at me (document)">
+
+  <span ondblclick="alert('dbclick')">DO doubleclick at me</span>
+
+  <span>
+    Before...
+    <span ondblclick="alert('Click!')" onmousedown="return false">DO doubleclick at me</span>
+    ...After
+  </span>
+
+  <div oncopy="alert('Copying is forbidden!');return false">
+    Dear user!
+    Copying of information is forbidden for you!.
+    If you know JS or HTML, you can find all neccessary information in initial code of page.
+  </div>
+
+  <script src="main.js"></script>
+
+  <!-- task -->
+  <div class="task">
+    <span class="task__title"></span>
+    <ul class="task__list">
+      <li class="task__list-item">Christofer Robin.</li>
+      <li class="task__list-item">Winni-Puh.</li>
+      <li class="task__list-item">Tiger.</li>
+      <li class="task__list-item">Kengoo.</li>
+      <li class="task__list-item">Rebbit. Just rabbit.</li>
+    </ul>
+  </div>
+  
+  <script src="task.js"></script>
+
+</body>
+</html>

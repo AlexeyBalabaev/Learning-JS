@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+
+    .example-area1 * {
+      margin: 10px;
+      border: 1px solid blue;
+      cursor: pointer;
+    }
+
+    .example-area2  {
+      line-height: 25px;
+      font-size: 16px;
+    }
+
+    .example-area2 form {
+      background-color: #2d2d2d;
+      position: relative;
+      width: 150px;
+      height: 150px;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .example-area2 div {
+      background-color: #ababab;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 100px;
+      height: 100px;
+    }
+
+    .example-area2 p {
+      background-color: #444;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      margin: 0;
+    }
+
+    .example-area3 * {
+      margin: 10px;
+      border: 1px solid blue;
+      cursor: pointer;
+    }
+  
+  </style>
+  
+</head>
+<body>
+
+  <div onclick="alert('HANDLER!')">
+    <em>If you'll click on <code>EM</code> the handler will work on <code>DIV</code></em>
+  </div>
+
+  <div class="example-area1">
+    <form onclick="alert('form')">FORM
+      <div onclick="alert('div')">DIV
+        <p onclick="alert('p')">P</p>
+      </div>
+    </form>
+  </div>
+
+  <div class="example-area2">
+    <span>The click will show both: <code>event.target</code> and <code>this</code> for comparison:</span>
+
+    <form class="form">FORM
+      <div>DIV
+        <p>P</p>
+      </div>
+    </form>
+  </div>
+
+  <div onclick="alert('ascent does not reach here')">
+    <button onclick="event.stopPropagation()">Click me!</button>
+  </div>
+
+  <div class="example-area3">
+    <form>FORM
+      <div>DIV
+        <p>P</p>
+      </div>
+    </form>
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
