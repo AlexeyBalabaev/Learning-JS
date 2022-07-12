@@ -58,3 +58,23 @@ alert( text.data );   // Hello, sir!
 let comment = text.nextSibling;
 alert( comment.data );   // typical comment
 
+// textContext
+let news = document.querySelector('.news');
+alert(news.textContext);   // Breaking news! Something happens around the world!
+
+let fullName = prompt("Enter your name?", "<b>Vinnie-puh!</b>");
+let tcElem1 = document.querySelector('.tc-elem1');
+let tcElem2 = document.querySelector('.tc-elem2');
+
+tcElem1.innerHTML = fullName;
+tcElem2.textContent = fullName;
+
+let hiddenElem = document.querySelector('.hidden-elem');
+hiddenElem.hidden = true;
+
+let blinkElem = document.querySelector('.tc-ex4');
+setInterval(() => blinkElem.hidden = !blinkElem.hidden, 1000);
+
+alert(ielem.type);   // text
+alert(ielem.id);   // ielem
+alert(ielem.value);   // meaning
