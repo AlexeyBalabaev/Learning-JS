@@ -82,3 +82,10 @@ let c7 = a4.filter( item => {
   }
 });
 console.log(c7);  // The result is without 0 inside array, so it's an error
+
+let c8 = a4.filter( item => {
+  if (item % 2 === 0) {
+    return index;
+  }
+});
+console.log(c8);  // The result is
